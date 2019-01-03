@@ -1,0 +1,8 @@
+CREATE TABLE userdata(id NUMBER(10) NOT NULL,email VARCHAR2(255),first_name  VARCHAR2(255),last_name VARCHAR2(255),PRIMARY KEY (id));
+
+CREATE SEQUENCE userdata_seq START WITH 1 INCREMENT BY 1; 
+
+CREATE OR REPLACE TRIGGER userdata_seq_tr BEFORE INSERT ON userdata FOR EACH ROW WHEN (NEW.id IS NULL) BEGIN SELECT userdata_seq.NEXTVAL INTO :NEW.id FROM DUAL; END;
+
+For more info : https://www.geeksforgeeks.org/sql-sequences/
+		https://www.codeproject.com/Articles/38808/%2FArticles%2F38808%2FOverview-of-SQL-Server-database-Triggers

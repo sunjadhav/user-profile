@@ -1,0 +1,28 @@
+<div class="col-md-6">
+<h2> User Details</h2>
+
+<div class="form-group row">
+<table class="table table-striped">
+    <thead>
+    <tr>
+    <th class="hidden">Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let user of users">
+
+    <td class="hidden">{{user.id}}</td>
+    <td><input class="form-control" type="text" [(ngModel)]="user.firstName" value={{user.firstName}}></td>
+    <td><input  class="form-control" type="text" [(ngModel)]="user.lastName" value={{user.lastName}}></td>
+    <td><input class="form-control" type="text" [(ngModel)]="user.email" value={{user.email}}></td>
+    <td><button class="btn btn-primary" (click)="editUser(user)"> Edit User</button></td>
+    <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete User</button></td>
+
+  </tr>
+  </tbody>
+</table>
+</div>
